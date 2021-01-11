@@ -1,11 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-/* * {
-    color: grey;
-    border: 1px solid  #704846;
-} */
-
 :root {
+    --main-color: black;
+    --accent-color: rgb(50, 206, 211);
     font-family: 'Open Sans', sans-serif;
     scroll-behavior: smooth;
 }
@@ -16,51 +13,65 @@ body {
 }
 
 .logo {
-    color: red;
+    color: var(--main-color);
     font-family: 'Libre Baskerville', serif;
     font-size: 3.5rem;
     text-transform: uppercase;
     text-align: center;
 }
 
-h1 {
-    color: red;
-    margin: 0;
+.selected {
+    font-weight: bold;
 }
 
-h2 {
-    color: blue;
+.burger-icon {
+    font-size: 3rem;
 }
 
-#products {
-    text-transform: uppercase;
-    color: greenyellow;
+#burger-checkbox {
+    display: none;
 }
 
 header .menu {
+    display: none;
+}
+
+header input:checked ~ .menu {
     display: flex;
+}
+
+header .menu {
     flex-direction: column;
 }
 
 header .menu a {
     text-decoration: none;
     text-transform: uppercase;
-    color: black;
-    border: 1px solid transparent;
-}
-
-header .menu a::before {
-    content: "[";
-}
-
-header .menu a::after {
-    content: "]";
+    color: var(--main-color);
+    padding: 3px;
 }
 
 header .menu a:hover {
-    border-color: black;
+    font-weight: bold;
 }
 
+@media (min-width: 610px) {
+    header nav {
+        display: flex;
+    }
+
+    .burger-icon {
+        display: none;
+    }
+
+    header .menu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        flex: 1;
+    }
+}
 
 header .banner {
     background-image: url(../img/baby-yoda.svg);
@@ -71,4 +82,75 @@ header .banner {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+header .banner h1 {
+    color: var(--accent-color);
+    font-size: 3.5rem;
+    font-family: 'Libre Baskerville', serif;
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+.product-card {
+    border: 1px solid var(--main-color);
+    margin: 5px;
+    padding: 5px;
+}
+
+.product-card .buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+@media (min-width: 660px) {
+    .product-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 800px) {
+    .product-list {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (min-width: 980px) {
+    .product-list {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+footer form label {
+    display: block;
+}
+
+/* Controls */
+
+.button {
+    padding: 0.35em 1.2em;
+    border: 0.1em solid #FFFFFF;
+    margin: 0 0.3em 0.3em 0;
+    border-radius: 0.12em;
+    color: #FFFFFF;
+    text-align: center;
+    transition: color 0.7s;
+    background-color: transparent;
+}
+
+.button:hover {
+    color: #000000;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+.card-button {
+    border-color: black;
+    color: black;
+}
+
+.card-button:hover {
+    background-color: black;
+    color: white;
 }
